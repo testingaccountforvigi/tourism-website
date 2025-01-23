@@ -1,0 +1,153 @@
+Last login: Wed Jan 22 12:27:00 on ttys013
+maheshrajpurohit@Maheshs-Macbook-Air ~ % cd documents
+maheshrajpurohit@Maheshs-Macbook-Air documents % bash
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ mkdir tourism-website
+bash-3.2$ cd tourism-website
+bash-3.2$ touch home.html about.html contact.html climate.html visitplaces.html
+bash-3.2$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+Initialized empty Git repository in /Users/maheshrajpurohit/Documents/tourism-website/.git/
+bash-3.2$ 
+bash-3.2$ git add .
+bash-3.2$ git commit -m "Added Pages with heading"
+[master (root-commit) f5af503] Added Pages with heading
+ 5 files changed, 55 insertions(+)
+ create mode 100644 about.html
+ create mode 100644 climate.html
+ create mode 100644 contact.html
+ create mode 100644 home.html
+ create mode 100644 visitplaces.html
+bash-3.2$ git checkout -b update-about-page
+Switched to a new branch 'update-about-page'
+bash-3.2$ git add .
+bash-3.2$ git commit -m "Edited Home Page"
+[update-about-page 6e015ba] Edited Home Page
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+bash-3.2$ git branch -a
+  master
+* update-about-page
+bash-3.2$ git checkout master
+Switched to branch 'master'
+bash-3.2$ git merge update-about-page
+Updating f5af503..6e015ba
+Fast-forward
+ home.html | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+bash-3.2$ git branch -a
+* master
+  update-about-page
+bash-3.2$ git branch -d update-about-page
+Deleted branch update-about-page (was 6e015ba).
+bash-3.2$ git remote add origin https://github.com/testingaccountforvigi/tourism-website.git
+bash-3.2$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/testingaccountforvigi/tourism-website.git'
+bash-3.2$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/testingaccountforvigi/tourism-website.git'
+bash-3.2$ git remote add origin https://github.com/testingaccountforvigi/tourism-website.git
+error: remote origin already exists.
+bash-3.2$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/testingaccountforvigi/tourism-website.git'
+bash-3.2$ git branch -a
+* master
+bash-3.2$ git add .
+bash-3.2$ git commit -m "One More Commit"
+On branch master
+nothing to commit, working tree clean
+bash-3.2$ git remote add origin https://github.com/testingaccountforvigi/tourism-website.git
+error: remote origin already exists.
+bash-3.2$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/testingaccountforvigi/tourism-website.git'
+bash-3.2$ git branch -M main
+bash-3.2$ git push -u origin main
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 995 bytes | 995.00 KiB/s, done.
+Total 10 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (6/6), done.
+To https://github.com/testingaccountforvigi/tourism-website.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+bash-3.2$ git branch -M main
+bash-3.2$ git fetch
+From https://github.com/testingaccountforvigi/tourism-website
+ * [new branch]      add-contact-details -> origin/add-contact-details
+bash-3.2$ git checkout add-contact-details
+branch 'add-contact-details' set up to track 'origin/add-contact-details'.
+Switched to a new branch 'add-contact-details'
+bash-3.2$ git branch -a
+* add-contact-details
+  main
+  remotes/origin/add-contact-details
+  remotes/origin/main
+bash-3.2$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+bash-3.2$ git merge add-contact-details
+Already up to date.
+bash-3.2$ git push origin main
+Everything up-to-date
+bash-3.2$ echo "Local Climate: Sunny">>climate.html
+bash-3.2$ git add climate.html
+bash-3.2$ git commit -m "Updated the climate.html locally"
+[main 5126e41] Updated the climate.html locally
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bash-3.2$ git pull origin main
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 991 bytes | 198.00 KiB/s, done.
+From https://github.com/testingaccountforvigi/tourism-website
+ * branch            main       -> FETCH_HEAD
+   6e015ba..6b95dae  main       -> origin/main
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint:
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+bash-3.2$ git add climate.html
+bash-3.2$ git commit -m "Resolved the conflict in climate.html"
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+
+nothing to commit, working tree clean
+bash-3.2$ git tag v1.0.0
+bash-3.2$ git push origin v1.0.0
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 335 bytes | 335.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/testingaccountforvigi/tourism-website.git
+ * [new tag]         v1.0.0 -> v1.0.0
+bash-3.2$ 
